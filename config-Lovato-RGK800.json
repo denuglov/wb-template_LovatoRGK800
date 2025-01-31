@@ -1,0 +1,479 @@
+{
+    "device_type": "Lovato_RGK800",
+    "title": "Lovato RGK800",
+    "group": "Контроллеры ДГУ",
+    "device": {
+        "name": "Lovato RGK800",
+        "id": "Lovato_RGK800",
+        "groups": [
+            {
+                "title": "General",
+                "id": "general",
+                "order": 0
+            },
+            {
+                "title": "Global status",
+                "id": "global_status",
+                "order": 1
+            },
+            {
+                "title": "Control",
+                "id": "control",
+                "order": 2
+            },
+            {
+                "title": "Electrical indicators",
+                "id": "electrical_indicators",
+                "order": 3
+            }
+        ],
+        "channels": [
+            {
+                "id" : "Temperature",
+                "name": "Температура двигателя",
+                "reg_type": "holding",
+                "address": "0x0F9F",
+                "format" : "u32",
+                "scale" : 1,
+                "type": "temperature",
+                "readonly" : true,
+                "group": "general"
+            },
+            {
+                "id" : "Pressure",
+                "name": "Давление масла",
+                "reg_type": "holding",
+                "address": "0x0FA1",
+                "format" : "u32",
+                "scale" : 0.1,
+                "type": "value",
+                "units" : "Bar",
+                "readonly" : true,
+                "group": "general"
+            },
+            {
+                "id" : "Fuel",
+                "name": "Уровень топлива",
+                "reg_type": "holding",
+                "address": "0x0FA3",
+                "format" : "u32",
+                "type": "value",
+                "units" : "%",
+                "readonly" : true,
+                "group": "general"
+            },
+            {
+                "id" : "Battery_voltage",
+                "name": "Напряжение батареи",
+                "reg_type": "holding",
+                "address": "0x0FA7",
+                "format" : "u32",
+                "scale" : 0.01,
+                "type": "value",
+                "units" : "В",
+                "readonly" : true,
+                "group": "general"
+            },
+            {
+                "id" : "Total_cranks",
+                "name": "Общее кол-во запусков",
+                "reg_type": "holding",
+                "address": "0x0F91",
+                "format" : "u32",
+                "type": "value",
+                "readonly" : true,
+                "group": "general"
+            },
+            {
+                "id" : "Good_cranks",
+                "name": "Кол-во правильных запусков",
+                "reg_type": "holding",
+                "address": "0x0F8F",
+                "format" : "u32",
+                "type": "value",
+                "readonly" : true,
+                "group": "general"
+            },
+            {
+                "id" : "engine_working_hours",
+                "name": "Часы работы двигателя",
+                "reg_type": "holding",
+                "address": "0x0F7F",
+                "format" : "u32",
+                "type": "value",
+                "units" : "ч.",
+                "readonly" : true,
+                "group": "general"
+            },
+            {
+                "id" : "engine_working_time",
+                "name": "Время работы двигателя",
+                "reg_type": "holding",
+                "address": "0x0F81",
+                "format" : "u32",
+                "type": "value",
+                "units" : "сек.",
+                "readonly" : true,
+                "group": "general"
+            },
+            {
+                "id" : "OFF_mode",
+                "name": "Режим - Выключен",
+                "reg_type": "input",
+                "address": "0x220F:0:1",
+                "format" : "u16",
+                "type": "switch",
+                "readonly" : true,
+                "group": "global_status"
+            },
+            {
+                "id" : "MAN_mode",
+                "name": "Режим - Ручной",
+                "reg_type": "input",
+                "address": "0x220F:1:1",
+                "format" : "u16",
+                "type": "switch",
+                "readonly" : true,
+                "group": "global_status"
+            },
+            {
+                "id" : "AUT_mode",
+                "name": "Режим - АВТО",
+                "reg_type": "input",
+                "address": "0x220F:2:1",
+                "format" : "u16",
+                "type": "switch",
+                "readonly" : true,
+                "group": "global_status"
+            },
+            {
+                "id" : "TEST_mode",
+                "name": "Режим - ТЕСТ",
+                "reg_type": "input",
+                "address": "0x220F:3:1",
+                "format" : "u16",
+                "type": "switch",
+                "readonly" : true,
+                "group": "global_status"
+            },
+            {
+                "id" : "mains_voltage_ok",
+                "name": "Напряжение сети в норме",
+                "reg_type": "input",
+                "address": "0x220F:4:1",
+                "format" : "u16",
+                "type": "switch",
+                "readonly" : true,
+                "group": "global_status"
+            },
+            {
+                "id" : "gen_voltage_ok",
+                "name": "Напряжение генератора в норме",
+                "reg_type": "input",
+                "address": "0x220F:5:1",
+                "format" : "u16",
+                "type": "switch",
+                "readonly" : true,
+                "group": "global_status"
+            },
+            {
+                "id" : "engine_running",
+                "name": "Двигатель работает",
+                "reg_type": "input",
+                "address": "0x220F:6:1",
+                "format" : "u16",
+                "type": "switch",
+                "readonly" : true,
+                "group": "global_status"
+            },
+            {
+                "id" : "generator_ready",
+                "name": "Генератор готов",
+                "reg_type": "input",
+                "address": "0x220F:7:1",
+                "format" : "u16",
+                "type": "switch",
+                "readonly" : true,
+                "group": "global_status"
+            },
+            {
+                "id" : "global_alarm",
+                "name": "Глобальная тревога",
+                "reg_type": "input",
+                "address": "0x220F:8:1",
+                "format" : "u16",
+                "type": "switch",
+                "readonly" : true,
+                "group": "global_status"
+            },
+            {
+                "id" : "mechanical_fault",
+                "name": "Механическая неисправность",
+                "reg_type": "input",
+                "address": "0x220F:9:1",
+                "format" : "u16",
+                "type": "switch",
+                "readonly" : true,
+                "group": "global_status"
+            },
+            {
+                "id" : "electrical_fault",
+                "name": "Электрическая неисправность",
+                "reg_type": "input",
+                "address": "0x220F:10:1",
+                "format" : "u16",
+                "type": "switch",
+                "readonly" : true,
+                "group": "global_status"
+            },
+            {
+                "id" : "alarms_enabled",
+                "name": "Включена тревога",
+                "reg_type": "input",
+                "address": "0x220F:11:1",
+                "format" : "u16",
+                "type": "switch",
+                "readonly" : true,
+                "group": "global_status"
+            },
+            {
+                "id" : "automatic_test_running",
+                "name": "Автоматический запуск теста",
+                "reg_type": "input",
+                "address": "0x220F:12:1",
+                "format" : "u16",
+                "type": "switch",
+                "readonly" : true,
+                "group": "global_status"
+            },
+            {
+                "id" : "automatic_test_enabled",
+                "name": "Включен автоматический тест",
+                "reg_type": "input",
+                "address": "0x220F:13:1",
+                "format" : "u16",
+                "type": "switch",
+                "readonly" : true,
+                "group": "global_status"
+            },
+            {
+                "id" : "mains_contactor_closed",
+                "name": "Сетевой контактор замкнут",
+                "reg_type": "input",
+                "address": "0x220F:14:1",
+                "format" : "u16",
+                "type": "switch",
+                "readonly" : true,
+                "group": "global_status"
+            },
+            {
+                "id" : "generator_contactor_closed",
+                "name": "Контактор генератора замкнут",
+                "reg_type": "input",
+                "address": "0x220F:15:1",
+                "format" : "u16",
+                "type": "switch",
+                "readonly" : true,
+                "group": "global_status"
+            },
+            {
+                "id" : "operative_mode_change",
+                "name": "Сменить режим работы",
+                "reg_type": "holding",
+                "write_address": "0x2EFF",
+                "format" : "u16",
+                "type": "value",
+                "readonly" : false,
+                "enum": [ 0 , 1 , 2 , 3 ],
+                "enum_titles": [
+                    "Выключен",
+                    "Ручной режим",
+                    "Автоматический режим",
+                    "Тестовый режим"
+                ],
+                "group": "control"
+            },
+
+
+
+
+            {
+                "id" : "L1_Phase_Voltage_Generator",
+                "name": "L1 фазное напряжение генератора",
+                "reg_type": "holding",
+                "address": "0x0007",
+                "format" : "u32",
+                "scale" : 0.01,
+                "type" : "voltage",
+                "readonly" : true,
+                "group": "electrical_indicators"
+            },
+            {
+                "id" : "L2_Phase_Voltage_Generator",
+                "name": "L2 фазное напряжение генератора",
+                "reg_type": "holding",
+                "address": "0x0009",
+                "format" : "u32",
+                "scale" : 0.01,
+                "type" : "voltage",
+                "readonly" : true,
+                "group": "electrical_indicators"
+            },
+            {
+                "id" : "L3_Phase_Voltage_Generator",
+                "name": "L3 фазное напряжение генератора",
+                "reg_type": "holding",
+                "address": "0x000B",
+                "format" : "u32",
+                "scale" : 0.01,
+                "type" : "voltage",
+                "readonly" : true,
+                "group": "electrical_indicators"
+            },
+            {
+                "id" : "L1-L2_voltage_generator",
+                "name": "L1-L2 линейное напряжение генератора",
+                "reg_type": "holding",
+                "address": "0x001B",
+                "format" : "u32",
+                "scale" : 0.01,
+                "type" : "voltage",
+                "readonly" : true,
+                "group": "electrical_indicators"
+            },
+            {
+                "id" : "L2-L3_voltage_generator",
+                "name": "L2-L3 линейное напряжение генератора",
+                "reg_type": "holding",
+                "address": "0x001D",
+                "format" : "u32",
+                "scale" : 0.01,
+                "type" : "voltage",
+                "readonly" : true,
+                "group": "electrical_indicators"
+            },
+            {
+                "id" : "L3-L1_voltage_generator",
+                "name": "L3-L1 линейное напряжение генератора",
+                "reg_type": "holding",
+                "address": "0x001F",
+                "format" : "u32",
+                "scale" : 0.01,
+                "type" : "voltage",
+                "readonly" : true,
+                "group": "electrical_indicators"
+            },
+            {
+                "id" : "L1_current",
+                "name": "L1 ток",
+                "reg_type": "holding",
+                "address": "0x000D",
+                "format" : "u32",
+                "scale" : 0.0001,
+                "type" : "current",
+                "readonly" : true,
+                "group": "electrical_indicators"
+            },
+            {
+                "id" : "L2_current",
+                "name": "L2 ток",
+                "reg_type": "holding",
+                "address": "0x000F",
+                "format" : "u32",
+                "scale" : 0.0001,
+                "type" : "current",
+                "readonly" : true,
+                "group": "electrical_indicators"
+            },
+            {
+                "id" : "L3_current",
+                "name": "L3 ток",
+                "reg_type": "holding",
+                "address": "0x0011",
+                "format" : "u32",
+                "scale" : 0.0001,
+                "type" : "current",
+                "readonly" : true,
+                "group": "electrical_indicators"
+            },
+            {
+                "id" : "N_current",
+                "name": "N ток нейтрали",
+                "reg_type": "holding",
+                "address": "0x0013",
+                "format" : "u32",
+                "scale" : 0.0001,
+                "type" : "current",
+                "readonly" : true,
+                "group": "electrical_indicators"
+            },
+            {
+                "id" : "frequency_Generator",
+                "name": "Частота генератора",
+                "reg_type": "holding",
+                "address": "0x005B",
+                "format" : "u32",
+                "scale" : 0.001,
+                "type" : "value",
+                "units" : "Hz",
+                "readonly" : true,
+                "group": "electrical_indicators"
+            },
+            {
+                "id" : "engine_speed",
+                "name": "Обороты двигателя",
+                "reg_type": "holding",
+                "address": "0x008D",
+                "format" : "u32",
+                "scale" : 0.01,
+                "type" : "value",
+                "units" : "Rpm",
+                "readonly" : true,
+                "group": "electrical_indicators"
+            },
+            {
+                "id" : "L1_CosPhi_generator",
+                "name": "L1 CosPhi",
+                "reg_type": "holding",
+                "address": "0x00A3",
+                "format" : "s32",
+                "scale" : 0.0001,
+                "type" : "value",
+                "readonly" : true,
+                "group": "electrical_indicators"
+            },
+            {
+                "id" : "L2_CosPhi_generator",
+                "name": "L2 CosPhi",
+                "reg_type": "holding",
+                "address": "0x00A5",
+                "format" : "s32",
+                "scale" : 0.0001,
+                "type" : "value",
+                "readonly" : true,
+                "group": "electrical_indicators"
+            },
+            {
+                "id" : "L3_CosPhi_generator",
+                "name": "L3 CosPhi",
+                "reg_type": "holding",
+                "address": "0x00A7",
+                "format" : "s32",
+                "scale" : 0.0001,
+                "type" : "value",
+                "readonly" : true,
+                "group": "electrical_indicators"
+            }
+        ],
+        "translations": {
+            "ru": {
+                "General": "Общее",
+                "Global status": "Глобальный статус",
+                "Control": "Управление ДГУ",
+                "Electrical indicators": "Электрические показатели",
+                "Relay 1": "Реле 1",
+                "Input Mode": "Режим входа"
+            }
+        }
+    }
+}
