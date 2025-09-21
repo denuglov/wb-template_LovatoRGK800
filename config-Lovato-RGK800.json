@@ -1,7 +1,6 @@
 {
     "device_type": "Lovato_RGK800",
     "title": "Lovato RGK800",
-    "group": "Контроллеры ДГУ",
     "device": {
         "name": "Lovato RGK800",
         "id": "Lovato_RGK800",
@@ -29,7 +28,7 @@
         ],
         "channels": [
             {
-                "id" : "Temperature",
+                "id" : "coolant",
                 "name": "Температура двигателя",
                 "reg_type": "holding",
                 "address": "0x0F9F",
@@ -40,42 +39,39 @@
                 "group": "general"
             },
             {
-                "id" : "Pressure",
+                "id" : "oil_pressure",
                 "name": "Давление масла",
                 "reg_type": "holding",
                 "address": "0x0FA1",
                 "format" : "u32",
                 "scale" : 0.1,
                 "type": "value",
-                "units" : "Bar",
                 "readonly" : true,
                 "group": "general"
             },
             {
-                "id" : "Fuel",
+                "id" : "Fuel_level",
                 "name": "Уровень топлива",
                 "reg_type": "holding",
                 "address": "0x0FA3",
                 "format" : "u32",
                 "type": "value",
-                "units" : "%",
                 "readonly" : true,
                 "group": "general"
             },
             {
-                "id" : "Battery_voltage",
+                "id" : "battery voltage",
                 "name": "Напряжение батареи",
                 "reg_type": "holding",
                 "address": "0x0FA7",
                 "format" : "u32",
                 "scale" : 0.01,
                 "type": "value",
-                "units" : "В",
                 "readonly" : true,
                 "group": "general"
             },
             {
-                "id" : "Total_cranks",
+                "id" : "starts_counter",
                 "name": "Общее кол-во запусков",
                 "reg_type": "holding",
                 "address": "0x0F91",
@@ -85,7 +81,7 @@
                 "group": "general"
             },
             {
-                "id" : "Good_cranks",
+                "id" : "nam_start",
                 "name": "Кол-во правильных запусков",
                 "reg_type": "holding",
                 "address": "0x0F8F",
@@ -95,24 +91,12 @@
                 "group": "general"
             },
             {
-                "id" : "engine_working_hours",
+                "id" : "working hours",
                 "name": "Часы работы двигателя",
                 "reg_type": "holding",
                 "address": "0x0F7F",
                 "format" : "u32",
                 "type": "value",
-                "units" : "ч.",
-                "readonly" : true,
-                "group": "general"
-            },
-            {
-                "id" : "engine_working_time",
-                "name": "Время работы двигателя",
-                "reg_type": "holding",
-                "address": "0x0F81",
-                "format" : "u32",
-                "type": "value",
-                "units" : "сек.",
                 "readonly" : true,
                 "group": "general"
             },
@@ -127,7 +111,7 @@
                 "group": "global_status"
             },
             {
-                "id" : "MAN_mode",
+                "id" : "mode_manual",
                 "name": "Режим - Ручной",
                 "reg_type": "input",
                 "address": "0x220F:1:1",
@@ -137,7 +121,7 @@
                 "group": "global_status"
             },
             {
-                "id" : "AUT_mode",
+                "id" : "mode_auto",
                 "name": "Режим - АВТО",
                 "reg_type": "input",
                 "address": "0x220F:2:1",
@@ -147,7 +131,7 @@
                 "group": "global_status"
             },
             {
-                "id" : "TEST_mode",
+                "id" : "mode_test",
                 "name": "Режим - ТЕСТ",
                 "reg_type": "input",
                 "address": "0x220F:3:1",
@@ -197,7 +181,7 @@
                 "group": "global_status"
             },
             {
-                "id" : "global_alarm",
+                "id" : "fault",
                 "name": "Глобальная тревога",
                 "reg_type": "input",
                 "address": "0x220F:8:1",
@@ -227,7 +211,7 @@
                 "group": "global_status"
             },
             {
-                "id" : "alarms_enabled",
+                "id" : "Warning",
                 "name": "Включена тревога",
                 "reg_type": "input",
                 "address": "0x220F:11:1",
@@ -283,13 +267,13 @@
                 "write_address": "0x2EFF",
                 "format" : "u16",
                 "type": "value",
-                "readonly" : false,
+                "readonly" : true,
                 "enum": [ 0 , 1 , 2 , 3 ],
                 "enum_titles": [
-                    "Выключен",
-                    "Ручной режим",
-                    "Автоматический режим",
-                    "Тестовый режим"
+                    "Off",
+                    "Manual",
+                    "Auto",
+                    "Test"
                 ],
                 "group": "control"
             },
@@ -298,7 +282,7 @@
 
 
             {
-                "id" : "L1_Phase_Voltage_Generator",
+                "id" : "Urms L1",
                 "name": "L1 фазное напряжение генератора",
                 "reg_type": "holding",
                 "address": "0x0007",
@@ -309,7 +293,7 @@
                 "group": "electrical_indicators"
             },
             {
-                "id" : "L2_Phase_Voltage_Generator",
+                "id" : "Urms L2",
                 "name": "L2 фазное напряжение генератора",
                 "reg_type": "holding",
                 "address": "0x0009",
@@ -320,7 +304,7 @@
                 "group": "electrical_indicators"
             },
             {
-                "id" : "L3_Phase_Voltage_Generator",
+                "id" : "Urms L3",
                 "name": "L3 фазное напряжение генератора",
                 "reg_type": "holding",
                 "address": "0x000B",
@@ -331,7 +315,7 @@
                 "group": "electrical_indicators"
             },
             {
-                "id" : "L1-L2_voltage_generator",
+                "id" : "U L1-L2",
                 "name": "L1-L2 линейное напряжение генератора",
                 "reg_type": "holding",
                 "address": "0x001B",
@@ -342,7 +326,7 @@
                 "group": "electrical_indicators"
             },
             {
-                "id" : "L2-L3_voltage_generator",
+                "id" : "U L2-L3",
                 "name": "L2-L3 линейное напряжение генератора",
                 "reg_type": "holding",
                 "address": "0x001D",
@@ -353,7 +337,7 @@
                 "group": "electrical_indicators"
             },
             {
-                "id" : "L3-L1_voltage_generator",
+                "id" : "U L3-L1",
                 "name": "L3-L1 линейное напряжение генератора",
                 "reg_type": "holding",
                 "address": "0x001F",
@@ -364,7 +348,7 @@
                 "group": "electrical_indicators"
             },
             {
-                "id" : "L1_current",
+                "id" : "Irms L1",
                 "name": "L1 ток",
                 "reg_type": "holding",
                 "address": "0x000D",
@@ -375,7 +359,7 @@
                 "group": "electrical_indicators"
             },
             {
-                "id" : "L2_current",
+                "id" : "Irms L2",
                 "name": "L2 ток",
                 "reg_type": "holding",
                 "address": "0x000F",
@@ -386,7 +370,7 @@
                 "group": "electrical_indicators"
             },
             {
-                "id" : "L3_current",
+                "id" : "Irms L3",
                 "name": "L3 ток",
                 "reg_type": "holding",
                 "address": "0x0011",
@@ -397,7 +381,7 @@
                 "group": "electrical_indicators"
             },
             {
-                "id" : "N_current",
+                "id" : "Irms N",
                 "name": "N ток нейтрали",
                 "reg_type": "holding",
                 "address": "0x0013",
@@ -408,31 +392,31 @@
                 "group": "electrical_indicators"
             },
             {
-                "id" : "frequency_Generator",
+                "id" : "Frequency",
                 "name": "Частота генератора",
                 "reg_type": "holding",
                 "address": "0x005B",
                 "format" : "u32",
                 "scale" : 0.001,
                 "type" : "value",
-                "units" : "Hz",
+                
                 "readonly" : true,
                 "group": "electrical_indicators"
             },
             {
-                "id" : "engine_speed",
+                "id" : "rpm",
                 "name": "Обороты двигателя",
                 "reg_type": "holding",
                 "address": "0x008D",
                 "format" : "u32",
                 "scale" : 0.01,
                 "type" : "value",
-                "units" : "Rpm",
+                
                 "readonly" : true,
                 "group": "electrical_indicators"
             },
             {
-                "id" : "L1_CosPhi_generator",
+                "id" : "PF L1",
                 "name": "L1 CosPhi",
                 "reg_type": "holding",
                 "address": "0x00A3",
@@ -443,7 +427,7 @@
                 "group": "electrical_indicators"
             },
             {
-                "id" : "L2_CosPhi_generator",
+                "id" : "PF L2",
                 "name": "L2 CosPhi",
                 "reg_type": "holding",
                 "address": "0x00A5",
@@ -454,7 +438,7 @@
                 "group": "electrical_indicators"
             },
             {
-                "id" : "L3_CosPhi_generator",
+                "id" : "PF L3",
                 "name": "L3 CosPhi",
                 "reg_type": "holding",
                 "address": "0x00A7",
